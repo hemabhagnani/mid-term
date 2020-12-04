@@ -2,6 +2,7 @@ package com.example.midterm;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
@@ -19,10 +20,13 @@ public class MainActivity extends AppCompatActivity {
     }
     public void confirmInput(View v) {
         InputValidation inputValidation = new InputValidation( this);
-        if (!inputValidation.validateEmailSignIn()) {
-            return;
+        if (inputValidation.validateEmailSignIn()) {
+            Intent intant = new Intent(MainActivity.this,Home.class);
+            startActivity(intant);
         }
-        String input = "Email: " + textInputEmail.getEditText().getText().toString();
+        return;
+
+
 
     }
 }
